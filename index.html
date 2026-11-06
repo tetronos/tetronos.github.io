@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="images/icon.svg">
+<link rel="icon" type="image/png" href="images/icon.png">
+<link rel="apple-touch-icon" href="images/icon.png">
+<script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<title>tetronos</title>
+<meta name="description" content="tetron mesh VPN, the tetron suite of terminal tools, and TetronOS, a GUI-less Debian system built on them.">
+<style>
+  :root { --bg:#0e1116; --surface:#161b22; --fg:#e6eaf0; --muted:#98a3b1; --border:#2a323d; --accent:#7ee0b0; --accent-2:#8fb8dc;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace; --sans:system-ui,-apple-system,"Segoe UI",sans-serif; color-scheme:dark; }
+  @media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) { --bg:#f6f8fa; --surface:#ffffff; --fg:#1b222c; --muted:#556170; --border:#d5dce5;
+    --accent:#14744c; --accent-2:#2a5f8f; color-scheme:light; } }
+  :root[data-theme="light"] { --bg:#f6f8fa; --surface:#ffffff; --fg:#1b222c; --muted:#556170; --border:#d5dce5; --accent:#14744c; --accent-2:#2a5f8f; color-scheme:light; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.65 var(--sans); -webkit-font-smoothing:antialiased; }
+  a { color:var(--accent-2); }
+  :focus-visible { outline:2px solid var(--accent-2); outline-offset:2px; }
+  .wrap { max-width:62rem; margin:0 auto; padding:0 16px; }
+  nav { border-bottom:1px solid var(--border); }
+  nav .wrap { display:flex; gap:16px; align-items:center; height:48px; font:.85rem var(--mono); }
+  nav .brand { display:flex; align-items:center; gap:8px; color:var(--accent); font-weight:700; margin-right:auto; text-decoration:none; }
+  nav .brand img { width:20px; height:20px; }
+  nav a { color:var(--muted); text-decoration:none; } nav a:hover { color:var(--fg); }
+  .tbtn { background:none; color:var(--muted); border:1px solid var(--border); border-radius:6px; padding:3px 10px; font:.75rem var(--mono); cursor:pointer; }
+  header { padding:3.5rem 0 2rem; }
+  h1 { font-size:clamp(2rem,7vw,3.4rem); line-height:1.05; letter-spacing:-.03em; margin:0 0 1rem; }
+  h1 em { font-style:normal; color:var(--accent); }
+  h2 { font-size:1.4rem; margin:0 0 .8rem; }
+  .lede { font-size:1.15rem; color:var(--muted); max-width:42rem; margin:0; }
+  section { padding:2.5rem 0; border-top:1px solid var(--border); }
+  pre { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:12px 14px; overflow-x:auto; font:.85rem/1.5 var(--mono); margin:.4rem 0 1.2rem; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(17rem,1fr)); gap:12px; }
+  .card { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 16px; }
+  .card h3 { margin:0 0 .3rem; font:600 1rem var(--mono); }
+  .card p { margin:0 0 .5rem; color:var(--muted); font-size:.93rem; }
+  .card .links { font:.8rem var(--mono); display:flex; gap:12px; }
+  footer { padding:2rem 0 3rem; border-top:1px solid var(--border); color:var(--muted); font-size:.85rem; }
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="brand" href="./"><img src="images/icon.svg" alt="">tetronos</a>
+  <a href="#install">Install</a>
+  <a href="#projects">Projects</a>
+  <a href="https://github.com/tetronos">GitHub</a>
+  <button class="tbtn" id="theme" type="button" aria-label="Toggle light and dark theme">theme</button>
+</div></nav>
+
+<header class="wrap">
+  <h1>A private mesh network and a <em>terminal desktop</em> to use it.</h1>
+  <p class="lede">tetron joins your machines into one encrypted peer-to-peer network, wherever they are. The tetron suite adds a terminal desktop, a web dashboard, a browser and add-ons around it. TetronOS puts it all on a GUI-less Debian system.</p>
+</header>
+
+<section id="install"><div class="wrap">
+  <h2>Install</h2>
+  <p>tetron and its add-ons (Linux and macOS):</p>
+  <pre>curl -fsSL https://raw.githubusercontent.com/tetronos/tetron/main/contrib/install-tetron-suite.sh | bash</pre>
+  <p>tetron-wm, the terminal desktop, with its recommended tools:</p>
+  <pre>curl -fsSL https://raw.githubusercontent.com/tetronos/tetron-wm/main/install-tetron-wm-suite.sh | bash</pre>
+  <p>Each project's page has the other ways to install it (Debian packages, release binaries, cargo).</p>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <h2>Projects</h2>
+  <div class="grid">
+    <div class="card"><h3>tetron</h3><p>Peer-to-peer mesh VPN on iroh and QUIC. Invite your machines; they reach each other directly and encrypted, with no central server.</p>
+      <div class="links"><a href="tetron/">site</a><a href="https://github.com/tetronos/tetron">repo</a></div></div>
+    <div class="card"><h3>tetron-wm</h3><p>A character-based desktop for the terminal, with tetron built in. Runs on the Linux console with no GUI, by mouse or keyboard.</p>
+      <div class="links"><a href="tetron-wm/">site</a><a href="https://github.com/tetronos/tetron-wm">repo</a></div></div>
+    <div class="card"><h3>tetron-webui</h3><p>Web dashboard for tetron, close to the full command line feature set.</p>
+      <div class="links"><a href="tetron-webui/GUIDE.html">guide</a><a href="https://github.com/tetronos/tetron-webui">repo</a></div></div>
+    <div class="card"><h3>tetron-tui</h3><p>Terminal interface to control the tetron mesh.</p>
+      <div class="links"><a href="https://github.com/tetronos/tetron-tui">repo</a></div></div>
+    <div class="card"><h3>tetron-browser</h3><p>A web browser for the terminal: a maintained continuation of Carbonyl, Chromium drawn in truecolor blocks.</p>
+      <div class="links"><a href="https://github.com/tetronos/tetron-browser">repo</a></div></div>
+    <div class="card"><h3>tetron-systray</h3><p>System tray icon for tetron.</p>
+      <div class="links"><a href="https://github.com/tetronos/tetron-systray">repo</a></div></div>
+    <div class="card"><h3>tetron-messageboard</h3><p>A message board hosted on your mesh, for the members of one tetron network.</p>
+      <div class="links"><a href="https://github.com/tetronos/tetron-messageboard">repo</a></div></div>
+    <div class="card"><h3>tetron-mobile-sync</h3><p>Android app that backs up your camera roll to a computer you own over your mesh. No cloud, no subscription.</p>
+      <div class="links"><a href="https://github.com/tetronos/tetron-mobile-sync">repo</a></div></div>
+    <div class="card"><h3>tetron-sync-receiver</h3><p>The home-side receiver for tetron-mobile-sync.</p>
+      <div class="links"><a href="https://github.com/tetronos/tetron-sync-receiver">repo</a></div></div>
+    <div class="card"><h3>tetron-hosts</h3><p>Writes your mesh peers' names into /etc/hosts, so they resolve by name without a DNS server.</p>
+      <div class="links"><a href="https://github.com/tetronos/tetron-hosts">repo</a></div></div>
+    <div class="card"><h3>tetron-relay</h3><p>Turns a plain Linux server into a self-hosted iroh relay for your tetron machines.</p>
+      <div class="links"><a href="https://github.com/tetronos/tetron-relay">repo</a></div></div>
+    <div class="card"><h3>tetron-veilid</h3><p>Veilid build that adds a Veilid transport to tetron.</p>
+      <div class="links"><a href="https://github.com/tetronos/tetron-veilid">repo</a></div></div>
+    <div class="card"><h3>casttui</h3><p>Terminal interface for casting media to a Chromecast.</p>
+      <div class="links"><a href="https://github.com/tetronos/casttui">repo</a></div></div>
+    <div class="card"><h3>tetron-packaging</h3><p>The shared .deb builder and GitHub Action behind every suite release and the TetronOS image.</p>
+      <div class="links"><a href="https://github.com/tetronos/tetron-packaging">repo</a></div></div>
+    <div class="card"><h3>tetron-testsuite</h3><p>Automated VM tests that drive tetron end to end through its own command line.</p>
+      <div class="links"><a href="https://github.com/tetronos/tetron-testsuite">repo</a></div></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">tetronos on GitHub: <a href="https://github.com/tetronos">github.com/tetronos</a></div></footer>
+
+<script>
+document.getElementById("theme").addEventListener("click", function () {
+  var r = document.documentElement, cur = r.getAttribute("data-theme");
+  if (!cur) cur = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+  var next = cur === "light" ? "dark" : "light";
+  r.setAttribute("data-theme", next);
+  try { localStorage.setItem("theme", next); } catch (e) {}
+});
+</script>
+</body>
+</html>
