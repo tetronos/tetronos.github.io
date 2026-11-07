@@ -64,7 +64,13 @@
   <p>tetron-wm, the terminal desktop, with its recommended tools:</p>
   <pre>curl -fsSL https://tetronos.github.io/tetron-wm/install.sh | bash</pre>
   <p>Read before you run: <a href="install.sh">install.sh</a>, <a href="https://github.com/tetronos/tetron/blob/main/contrib/install-tetron-suite.sh">tetron installer</a>, <a href="https://github.com/tetronos/tetron-wm/blob/main/install-tetron-wm-suite.sh">tetron-wm installer</a>.</p>
-  <p>Each project's page has the other ways to install it (Debian packages, release binaries, cargo).</p>
+  <h3 id="apt">Add the apt repo</h3>
+  <p>Debian 12+ and Ubuntu 22.04+ (amd64, arm64): signed packages of the whole suite, upgraded with the rest of the system by <code>apt upgrade</code>. Install <code>tetron-wm</code>, <code>tetron</code>, <code>tetron-tui</code>, <code>tetron-webui</code> or any other package listed at the <a href="https://tetronos.github.io/apt/">tetronos apt repository</a>.</p>
+  <pre>sudo curl -fsSLo /usr/share/keyrings/tetronos-archive-keyring.gpg https://tetronos.github.io/apt/tetronos-archive-keyring.gpg
+sudo curl -fsSLo /etc/apt/sources.list.d/tetronos.sources https://tetronos.github.io/apt/tetronos.sources
+sudo apt update
+sudo apt install tetron-wm</pre>
+  <p>Each project's page has the other ways to install it (release binaries, cargo).</p>
 </div></section>
 
 <section id="projects"><div class="wrap">
