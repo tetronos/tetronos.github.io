@@ -51,6 +51,7 @@
 <nav><div class="wrap">
   <a class="brand" href="./"><img src="images/icon.svg" alt="">tetronos</a>
   <a href="tetron-os/">TetronOS</a>
+  <a href="#tetron">tetron</a>
   <a href="#install">Install</a>
   <a href="#projects">Projects</a>
   <a href="https://github.com/tetronos">GitHub</a>
@@ -65,6 +66,20 @@
   <p class="sub">Beta: a live system you boot from USB or in a VM; no installer to disk yet. amd64, BIOS and UEFI. SHA256 <code>79faa9da…df76f321</code>, full value and how to write it to USB on the <a href="tetron-os/#download">TetronOS page</a>.</p>
   <figure class="shot"><img src="images/tetronos-desktop.png" alt="The TetronOS Desktop right after boot: the tetron-wm desktop with its top bar over a blue wallpaper" width="1280" height="800"></figure>
 </header>
+
+<section id="tetron"><div class="wrap">
+  <h1 style="font-size:clamp(1.7rem,5vw,2.6rem)">tetron: the <em>mesh</em> that connects it all.</h1>
+  <p class="lede">tetron is the core of TetronOS and of every tool here. It joins your laptop, servers, home machines and phone into one encrypted peer-to-peer network, wherever they are: at home, at work, behind NAT, on mobile data. No account, and no central server in the path of your traffic.</p>
+  <div class="grid" style="margin-top:1.4rem;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr))">
+    <div class="card"><h3>Invite only</h3><p>Create a network, mint an invite key, join from the other machine. Invites are single-use and expire after 7 days by default.</p></div>
+    <div class="card"><h3>Direct and encrypted</h3><p>Peers connect straight to each other over QUIC, punching through NAT with <a href="https://iroh.computer">iroh</a>; a relay only helps them find each other, or carries encrypted traffic when no direct path exists.</p></div>
+    <div class="card"><h3>Stable addresses</h3><p>Each machine gets a stable IPv4 and IPv6 address in every network, derived from its identity. ssh, file shares, web apps: any TCP or UDP program works.</p></div>
+    <div class="card"><h3>Many networks, kept apart</h3><p>Each network gets its own interface and subnet. Co-coordinators keep it running when one machine is off; Tor and self-hosted relays are options.</p></div>
+  </div>
+  <figure class="shot"><img src="images/tetron-mesh.jpg" alt="Diagram: every tetron node runs the same daemon with a TUN interface; nodes talk to each other over encrypted QUIC/UDP tunnels, and iroh's shared relay only helps with discovery and NAT traversal" width="1376" height="768" loading="lazy"></figure>
+  <p class="sub">On TetronOS it is installed and ready; the tetron-wm tray shows your peers. Anywhere else: <code>curl -fsSL https://tetronos.github.io/tetron/install.sh | bash</code></p>
+  <a class="btn" href="tetron/">Meet tetron</a><a class="btn ghost" href="https://github.com/tetronos/tetron">tetron on GitHub</a>
+</div></section>
 
 <section id="parts"><div class="wrap">
   <h1 style="font-size:clamp(1.7rem,5vw,2.6rem)">A private mesh network and a <em>terminal desktop</em> to use it.</h1>
