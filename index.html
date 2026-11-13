@@ -7,8 +7,8 @@
 <link rel="icon" type="image/png" href="images/icon.png">
 <link rel="apple-touch-icon" href="images/icon.png">
 <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
-<title>tetronos</title>
-<meta name="description" content="tetron mesh VPN, the tetron suite of terminal tools, and TetronOS, a GUI-less Debian system built on them.">
+<title>TetronOS: a whole computer, drawn in text</title>
+<meta name="description" content="TetronOS, a Debian system with no X11 and no Wayland: a terminal desktop, a browser and the tetron mesh VPN. Download the Desktop beta ISO, or add the tetron suite to the computer you have.">
 <style>
   :root { --bg:#0e1116; --surface:#161b22; --fg:#e6eaf0; --muted:#98a3b1; --border:#2a323d; --accent:#7ee0b0; --accent-2:#8fb8dc;
     --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace; --sans:system-ui,-apple-system,"Segoe UI",sans-serif; color-scheme:dark; }
@@ -38,12 +38,19 @@
   .card h3 { margin:0 0 .3rem; font:600 1rem var(--mono); }
   .card p { margin:0 0 .5rem; color:var(--muted); font-size:.93rem; }
   .card .links { font:.8rem var(--mono); display:flex; gap:12px; }
+  .btn { display:inline-block; margin:1.4rem 8px 0 0; padding:10px 18px; border-radius:8px; background:var(--accent); color:var(--bg); font-weight:600; text-decoration:none; }
+  .btn.ghost { background:none; color:var(--fg); border:1px solid var(--border); }
+  .beta { display:inline-block; font:.72rem var(--mono); letter-spacing:.12em; text-transform:uppercase; color:var(--accent); border:1px solid var(--accent); border-radius:99px; padding:2px 10px; margin:3rem 0 1rem; }
+  .shot { margin:2rem 0 0; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+  .shot img { display:block; width:100%; height:auto; }
+  .sub { color:var(--muted); font-size:.88rem; margin:.8rem 0 0; }
   footer { padding:2rem 0 3rem; border-top:1px solid var(--border); color:var(--muted); font-size:.85rem; }
 </style>
 </head>
 <body>
 <nav><div class="wrap">
   <a class="brand" href="./"><img src="images/icon.svg" alt="">tetronos</a>
+  <a href="tetron-os/">TetronOS</a>
   <a href="#install">Install</a>
   <a href="#projects">Projects</a>
   <a href="https://github.com/tetronos">GitHub</a>
@@ -51,12 +58,21 @@
 </div></nav>
 
 <header class="wrap">
-  <h1>A private mesh network and a <em>terminal desktop</em> to use it.</h1>
-  <p class="lede">tetron joins your machines into one encrypted peer-to-peer network, wherever they are. The tetron suite adds a terminal desktop, a web dashboard, a browser and add-ons around it. <a href="tetron-os/">TetronOS</a> puts it all on a GUI-less Debian system.</p>
+  <span class="beta">TetronOS v0.15.2 Desktop beta</span>
+  <h1>TetronOS: a whole computer, drawn in <em>text</em>.</h1>
+  <p class="lede">A Debian 13 system with no X11 and no Wayland. It boots into a truecolor console with a mouse and a real desktop: windows, a taskbar, an app store, a web browser, and tetron, a private mesh network that joins all your machines. Made of ordinary signed packages you can read, rebuild and replace.</p>
+  <a class="btn" href="https://github.com/tetronos/tetron-os/releases/download/v0.15.2/tetronos-desktop-fw-20261113-amd64.iso">Download the Desktop ISO (1.6 GB)</a><a class="btn ghost" href="tetron-os/">About TetronOS</a><a class="btn ghost" href="https://github.com/tetronos/tetron-os/releases/tag/v0.15.2">Release notes</a>
+  <p class="sub">Beta: a live system you boot from USB or in a VM; no installer to disk yet. amd64, BIOS and UEFI. SHA256 <code>79faa9da…df76f321</code>, full value and how to write it to USB on the <a href="tetron-os/#download">TetronOS page</a>.</p>
+  <figure class="shot"><img src="images/tetronos-desktop.png" alt="The TetronOS Desktop right after boot: the tetron-wm desktop with its top bar over a blue wallpaper" width="1280" height="800"></figure>
 </header>
 
+<section id="parts"><div class="wrap">
+  <h2>Or add the parts to the computer you have</h2>
+  <p class="lede">Everything in TetronOS also runs on your current system. tetron joins your machines into one encrypted peer-to-peer network, wherever they are. The tetron suite adds a terminal desktop, a web dashboard, a browser and add-ons around it.</p>
+</div></section>
+
 <section id="install"><div class="wrap">
-  <h2>Install</h2>
+  <h2>Install the suite</h2>
   <p>Pick tetron or tetron-wm when it asks (Linux and macOS):</p>
   <pre>curl -fsSL https://tetronos.github.io/install.sh | bash</pre>
   <p>Or go straight to one. tetron, the mesh VPN, and its add-ons:</p>
