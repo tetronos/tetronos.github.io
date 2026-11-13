@@ -8,6 +8,11 @@
 #   curl -fsSL https://tetronos.github.io/install.sh | bash -s -- tetron
 #   curl -fsSL https://tetronos.github.io/install.sh | bash -s -- tetron-wm
 #
+# tetron-wm as the apt package (adds the tetronos apt repo), or your own build
+# from a clone in place of it (the package stays, its binary is diverted):
+#   ... | bash -s -- tetron-wm --method deb
+#   ... | bash -s -- tetron-wm --from-clone ~/code/tetron-wm
+#
 # The suites' installers are also reachable directly:
 #   https://tetronos.github.io/tetron/install.sh      tetron mesh VPN and its add-ons
 #   https://tetronos.github.io/tetron-wm/install.sh   tetron-wm terminal desktop and its tools
@@ -21,7 +26,7 @@ main() {
 	local suite="" ans tmp rc
 	case "${1:-}" in
 	tetron | tetron-wm) suite="$1"; shift ;;
-	-h | --help) sed -n '2,14p' "${BASH_SOURCE[0]:-/dev/null}" 2>/dev/null | sed 's/^# \{0,1\}//'; return 0 ;;
+	-h | --help) sed -n '2,18p' "${BASH_SOURCE[0]:-/dev/null}" 2>/dev/null | sed 's/^# \{0,1\}//'; return 0 ;;
 	esac
 	if [ -z "$suite" ]; then
 		if ! { : </dev/tty; } 2>/dev/null; then
