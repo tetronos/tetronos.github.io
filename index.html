@@ -8,7 +8,7 @@
 <link rel="apple-touch-icon" href="images/icon.png">
 <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <title>TetronOS: a whole computer, drawn in text</title>
-<meta name="description" content="TetronOS, a Debian system with no X11 and no Wayland: a terminal desktop, a browser and the tetron mesh VPN. Download the Desktop beta ISO, or add the tetron suite to the computer you have.">
+<meta name="description" content="TetronOS, a Linux system with no X11 and no Wayland: a terminal desktop, a browser and the tetron mesh VPN. Two flavors, Debian and NixOS. Download a beta ISO, or add the tetron suite to the computer you have.">
 <style>
   :root { --bg:#0e1116; --surface:#161b22; --fg:#e6eaf0; --muted:#98a3b1; --border:#2a323d; --accent:#7ee0b0; --accent-2:#8fb8dc;
     --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace; --sans:system-ui,-apple-system,"Segoe UI",sans-serif; color-scheme:dark; }
@@ -44,6 +44,9 @@
   .shot { margin:2rem 0 0; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
   .shot img { display:block; width:100%; height:auto; }
   .sub { color:var(--muted); font-size:.88rem; margin:.8rem 0 0; }
+  .flavors { display:grid; grid-template-columns:repeat(auto-fit,minmax(18rem,1fr)); gap:12px; margin-top:1.4rem; }
+  .flavors .card .btn { margin-top:.6rem; }
+  .flavors .card .sub { margin-top:.6rem; }
   footer { padding:2rem 0 3rem; border-top:1px solid var(--border); color:var(--muted); font-size:.85rem; }
 </style>
 </head>
@@ -59,11 +62,18 @@
 </div></nav>
 
 <header class="wrap">
-  <span class="beta">TetronOS v0.15.2 Desktop beta</span>
+  <span class="beta">TetronOS @@VERSION@@ beta: Debian and NixOS</span>
   <h1>TetronOS: a whole computer, drawn in <em>text</em>.</h1>
-  <p class="lede">A Debian 13 system with no X11 and no Wayland. It boots into a truecolor console with a mouse and a real desktop: windows, a taskbar, an app store, a web browser, and tetron, a private mesh network that joins all your machines. Made of ordinary signed packages you can read, rebuild and replace.</p>
-  <a class="btn" href="https://github.com/tetronos/tetron-os/releases/download/v0.15.2/tetronos-desktop-fw-20261113-amd64.iso">Download the Desktop ISO (1.6 GB)</a><a class="btn ghost" href="tetron-os/">About TetronOS</a><a class="btn ghost" href="https://github.com/tetronos/tetron-os/releases/tag/v0.15.2">Release notes</a>
-  <p class="sub">Beta: a live system you boot from USB or in a VM; no installer to disk yet. amd64, BIOS and UEFI. SHA256 <code>79faa9da…df76f321</code>, full value and how to write it to USB on the <a href="tetron-os/#download">TetronOS page</a>.</p>
+  <p class="lede">A Linux system with no X11 and no Wayland. It boots into a truecolor console with a mouse and a real desktop: windows, a taskbar, an app store, a web browser, and tetron, a private mesh network that joins all your machines. It comes in two flavors with the same desktop and the same mesh: pick the base you prefer.</p>
+  <div class="flavors">
+    <div class="card"><h3>Debian flavor</h3><p>Debian 13 made of ordinary signed .deb packages you can read, rebuild and replace, upgraded by <code>apt upgrade</code>.</p>
+      <a class="btn" href="@@DEB_ISO_URL@@">Download the Debian ISO (@@DEB_ISO_SIZE@@)</a>
+      <p class="sub">@@DEB_ISO_NOTE@@ <a href="https://github.com/tetronos/tetron-os/releases/tag/@@DEB_TAG@@">Release notes</a>, SHA256 and how to write it to USB on the <a href="tetron-os/#download">TetronOS page</a>.</p></div>
+    <div class="card"><h3>NixOS flavor</h3><p>NixOS built from one flake: the whole system is declared in a file, every change is a new generation you can roll back.</p>
+      <a class="btn" href="@@NIX_ISO_URL@@">Download the NixOS ISO (@@NIX_ISO_SIZE@@)</a>
+      <p class="sub">@@NIX_ISO_NOTE@@ <a href="https://github.com/tetronos/tetron-nixos/releases/tag/@@NIX_TAG@@">Release notes and SHA256</a>, source at <a href="https://github.com/tetronos/tetron-nixos">tetron-nixos</a>.</p></div>
+  </div>
+  <p class="sub">Beta. amd64, BIOS and UEFI. Write an ISO to USB with <code>dd</code> or Ventoy, or boot it in a VM. <a href="tetron-os/">About TetronOS</a></p>
   <figure class="shot"><img src="images/tetronos-desktop.png?v=2" alt="The TetronOS desktop: the tetron-wm menu open, and the Tetron window listing the peers of a mesh network with how each one connects" width="1787" height="1122"></figure>
 </header>
 
@@ -82,8 +92,8 @@
 
 <section id="parts"><div class="wrap">
   <h1 style="font-size:clamp(1.7rem,5vw,2.6rem)">A private mesh network and a <em>terminal desktop</em> to use it.</h1>
-  <p style="font-size:1.35rem;line-height:1.45;font-weight:600;margin:0 0 1rem;max-width:44rem">Not installing TetronOS? Keep your own Linux or macOS and add the parts you want. Everything below installs on the system you already have; TetronOS comes with all of it.</p>
-  <p class="lede">tetron joins your machines into one encrypted peer-to-peer network, wherever they are. The tetron suite adds a terminal desktop, a web dashboard, a browser and add-ons around it. <a href="tetron-os/">TetronOS</a> puts it all on a GUI-less Debian system; every part also installs on the computer you have.</p>
+  <p style="font-size:1.35rem;line-height:1.45;font-weight:600;margin:0 0 1rem;max-width:44rem">Not installing TetronOS? Keep your own Linux, NixOS or macOS and add the parts you want. Everything below installs on the system you already have; TetronOS comes with all of it.</p>
+  <p class="lede">tetron joins your machines into one encrypted peer-to-peer network, wherever they are. The tetron suite adds a terminal desktop, a web dashboard, a browser and add-ons around it. <a href="tetron-os/">TetronOS</a> puts it all on a GUI-less Debian or NixOS system; every part also installs on the computer you have.</p>
 </div></section>
 
 <section id="install" style="border-top:0;padding-top:0"><div class="wrap">
@@ -101,14 +111,31 @@
 sudo curl -fsSLo /etc/apt/sources.list.d/tetronos.sources https://tetronos.github.io/apt/tetronos.sources
 sudo apt update
 sudo apt install tetron-wm</pre>
+  <h3 id="nix">Nix and NixOS</h3>
+  <p>Any Linux with Nix, or NixOS (x86_64 and aarch64): each part of the suite is a package and a NixOS module of the <a href="https://github.com/tetronos/tetron-nixos">tetron-nixos</a> flake, on stock nixpkgs. Try one, or install it to your profile:</p>
+  <pre>nix run github:tetronos/tetron-nixos#casttui
+nix profile install github:tetronos/tetron-nixos#tetron-tui</pre>
+  <p>Packages: <code>tetron</code>, <code>tetron-wm</code>, <code>tetron-tui</code>, <code>casttui</code>, <code>kmscon</code>. On NixOS add the flake as an input and turn on only the modules you want; nothing else on the machine changes:</p>
+  <pre>modules = [
+  tetron-nixos.nixosModules.tetron
+  tetron-nixos.nixosModules.tetron-tui
+  { services.tetron = { enable = true; operator = "alice"; };
+    programs.tetron-tui.enable = true; }
+];</pre>
+  <p>A signed binary cache saves compiling them. Add it to <code>/etc/nix/nix.conf</code> (then restart nix-daemon), or to <code>nix.settings</code> on NixOS:</p>
+  <pre>extra-substituters = https://github.com/tetronos/tetron-nixos-cache/releases/download/cache
+extra-trusted-public-keys = tetron-nixos-cache-1:VZnNn/Hb0ytcL354uHPmQeZA0CZheIIHUgjBVrghLUI=</pre>
+  <p>The modules, the whole-system module and the cache are described in the <a href="https://github.com/tetronos/tetron-nixos#readme">tetron-nixos README</a>.</p>
   <p>Each project's page has the other ways to install it (release binaries, cargo).</p>
 </div></section>
 
 <section id="projects"><div class="wrap">
   <h2>Projects</h2>
   <div class="grid">
-    <div class="card"><h3>TetronOS</h3><p>Debian 13 with no X11 and no Wayland: the kmscon console, the tetron-wm desktop, the tetron mesh and tetron-browser, as Server and Desktop editions. In development.</p>
+    <div class="card"><h3>TetronOS (Debian)</h3><p>Debian 13 with no X11 and no Wayland: the kmscon console, the tetron-wm desktop, the tetron mesh and tetron-browser, as Server and Desktop editions. In development.</p>
       <div class="links"><a href="tetron-os/">site</a><a href="https://github.com/tetronos/tetron-os">repo</a></div></div>
+    <div class="card"><h3>tetron-nixos</h3><p>The NixOS flavor of TetronOS, one flake: the live ISO and installer, and every part of the suite as a Nix package and NixOS module. In development.</p>
+      <div class="links"><a href="https://github.com/tetronos/tetron-nixos">repo</a><a href="https://github.com/tetronos/tetron-nixos-cache">binary cache</a></div></div>
     <div class="card"><h3>tetron</h3><p>Peer-to-peer mesh VPN on iroh and QUIC. Invite your machines; they reach each other directly and encrypted, with no central server.</p>
       <div class="links"><a href="tetron/">site</a><a href="https://github.com/tetronos/tetron">repo</a></div></div>
     <div class="card"><h3>tetron-wm</h3><p>A character-based desktop for the terminal, with tetron built in. Runs on the Linux console with no GUI, by mouse or keyboard.</p>
