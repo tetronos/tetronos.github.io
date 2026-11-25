@@ -62,16 +62,16 @@
 </div></nav>
 
 <header class="wrap">
-  <span class="beta">TetronOS @@VERSION@@ beta: Debian and NixOS</span>
+  <span class="beta">TetronOS v0.15.8 beta: Debian and NixOS</span>
   <h1>TetronOS: a whole computer, drawn in <em>text</em>.</h1>
   <p class="lede">A Linux system with no X11 and no Wayland. It boots into a truecolor console with a mouse and a real desktop: windows, a taskbar, an app store, a web browser, and tetron, a private mesh network that joins all your machines. It comes in two flavors with the same desktop and the same mesh: pick the base you prefer.</p>
   <div class="flavors">
     <div class="card"><h3>Debian flavor</h3><p>Debian 13 made of ordinary signed .deb packages you can read, rebuild and replace, upgraded by <code>apt upgrade</code>.</p>
-      <a class="btn" href="@@DEB_ISO_URL@@">Download the Debian ISO (@@DEB_ISO_SIZE@@)</a>
-      <p class="sub">@@DEB_ISO_NOTE@@ <a href="https://github.com/tetronos/tetron-os/releases/tag/@@DEB_TAG@@">Release notes</a>, SHA256 and how to write it to USB on the <a href="tetron-os/#download">TetronOS page</a>.</p></div>
+      <a class="btn" href="https://github.com/tetronos/tetron-os/releases/download/v0.15.8/tetronos-server-v0.15.8-amd64.iso">Download Server (490 MB)</a><a class="btn ghost" href="https://github.com/tetronos/tetron-os/releases/download/v0.15.8/tetronos-desktop-v0.15.8-amd64.iso">Desktop (1.6 GB)</a>
+      <p class="sub">Server is the main edition: the console desktop, the mesh, the app store and drive mounting; add any app from the store. Desktop adds firmware, sound, the browser and the app collections, for a laptop that should just work. <a href="https://github.com/tetronos/tetron-os/releases/tag/v0.15.8">Release notes</a>, SHA256 and how to write it to USB on the <a href="tetron-os/#download">TetronOS page</a>.</p></div>
     <div class="card"><h3>NixOS flavor</h3><p>NixOS built from one flake: the whole system is declared in a file, every change is a new generation you can roll back.</p>
-      <a class="btn" href="@@NIX_ISO_URL@@">Download the NixOS ISO (@@NIX_ISO_SIZE@@)</a>
-      <p class="sub">@@NIX_ISO_NOTE@@ <a href="https://github.com/tetronos/tetron-nixos/releases/tag/@@NIX_TAG@@">Release notes and SHA256</a>, source at <a href="https://github.com/tetronos/tetron-nixos">tetron-nixos</a>.</p></div>
+      <a class="btn" href="https://github.com/tetronos/tetron-nixos/releases/download/v0.15.8/tetronos-nixos-0.15.8-x86_64-linux.iso">Download the NixOS ISO (778 MB)</a>
+      <p class="sub">A server-style live system with the installer. <a href="https://github.com/tetronos/tetron-nixos/releases/tag/v0.15.8">Release notes and SHA256</a>, source at <a href="https://github.com/tetronos/tetron-nixos">tetron-nixos</a>.</p></div>
   </div>
   <p class="sub">Beta. amd64, BIOS and UEFI. Write an ISO to USB with <code>dd</code> or Ventoy, or boot it in a VM. <a href="tetron-os/">About TetronOS</a></p>
   <figure class="shot"><img src="images/tetronos-desktop.png?v=2" alt="The TetronOS desktop: the tetron-wm menu open, and the Tetron window listing the peers of a mesh network with how each one connects" width="1787" height="1122"></figure>
